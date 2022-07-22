@@ -2,7 +2,9 @@ from sqlalchemy import Column, String, Integer, Float
 from app.models.databases import Base, engine
 
 
-class Grupo(Base):
+class Group(Base):
+    __tablename__ = 'groups'
+
     id = Column(Integer, primary_key=True)
     message = Column(String)
 

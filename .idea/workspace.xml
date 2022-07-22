@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4761ee82-d30d-485e-abd6-e6444b32b7ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/ti/first_menu.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controller/welcome/welcome.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/welcome/welcome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/db/banco.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/modelsUser.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/modelsUser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/middleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

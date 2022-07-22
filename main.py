@@ -3,9 +3,8 @@ import time
 from selenium.webdriver.common.keys import Keys
 from app.views import middleware
 
-path = '/home/danielpy/Documentos/projects/cisbot/chromedriver'
 
-driver = webdriver.Chrome(executable_path=path)
+driver = webdriver.Chrome()
 driver.get('https://web.whatsapp.com/')
 
 time.sleep(15)

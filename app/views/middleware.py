@@ -136,7 +136,13 @@ class Mid:
                             self.user.reset_user()
                             self.user.finishing(self.message)
 
-
             # caso o usuario tenha escolhido o setor 2
             elif self.user.level == 2:
                 pass
+
+            if self.message == '0':
+                hello = welcome.sectors
+                self.user.reset_user()
+                for answer in hello:
+                    self.text_field.send_keys(answer, self.same_line)
+                self.text_field.send_keys('', Keys.ENTER)

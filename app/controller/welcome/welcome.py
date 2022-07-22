@@ -1,15 +1,15 @@
 from datetime import datetime
 date = int(str(datetime.now())[11:13])
 if date < 12:
-    greetings = 'Bom dia'
+    hour = 'Bom dia'
 elif date < 18:
-    greetings = 'Boa Tarde'
+    hour = 'Boa Tarde'
 elif date >= 18:
-    greetings = 'Boa Noite'
+    hour = 'Boa Noite'
 else:
-    greetings = 'Tudo bem?'
+    hour = 'Tudo bem?'
 
-greetings = [f'Olá, {greetings}! Sou *CisBoot*, o robô virtual do CISBAF, para começarmos digite o seu *nome*!']
+greetings = [f'Olá, {hour}! Sou *CisBoot*, o robô virtual do CISBAF, para começarmos digite o seu *nome*!']
 
 sectors = ['Porfavor, digite o *número* correspondente ao *setor* com que você deseja falar. ', '*1*. Falar com o TI. ',
          '*2*. Falar com o RH. ']
