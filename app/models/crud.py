@@ -1,5 +1,5 @@
 from app.models.databases import session
-from app.models.modelsUser import User
+from app.models.modelsUser import User, Grupo
 
 
 # function to fetch the user in the database
@@ -18,19 +18,23 @@ def create_user(number):
 
 
 # function to update user
-def update_information(number, name=None, unity=None, sector=None, level=None, stage=None, active=None):
+def update_information(number, name, unity, sector, level, menu, stage, message, active):
     query = session.query(User).filter(User.number == number).first()
-    print(name)
+
     if name:
         query.name = name
     if unity:
         query.unity = unity
     if sector:
-        query.sector = unity
+        query.sector = sector
     if level:
         query.level = level
+    if menu:
+        query.menu = menu
     if stage:
         query.stage = stage
+    if message:
+        query.stage = message
     if active:
         query.active = active
 
@@ -38,8 +42,6 @@ def update_information(number, name=None, unity=None, sector=None, level=None, s
     session.commit()
     return query
 
-def reset_user(number):
-    query = session.query(User).filter(User.number == number).first()
-    return query
 
-
+def alert_group(message):
+    pass
