@@ -42,11 +42,19 @@ class Account:
 
     def update_information(self, name=None, unity=None, sector=None, level=None, menu=None,
                            stage=None, message=None, active=None):
-        crud.update_information(self.number, name, unity, sector, level, menu, stage, message, active)
+        user = crud.update_information(self.number, name, unity, sector, level, menu, stage, message, active)
+        self.name = user.name
+        self.unity = user.unity
+        self.sector = user.sector
+        self.level = user.level
+        self.menu = user.menu
+        self.stage = user.stage
+        self.message = user.message
+        self.active = user.active
 
     def reset_user(self):
         crud.update_information(self.number, name=None, unity=None, sector=None,
-                                level=0, menu=0, stage=0.0, message='Null', active=3)
+                                level=0, menu=0, stage=0, message='Null', active=3)
 
     def finishing(self, message):
         group = crud.alert_group(message)

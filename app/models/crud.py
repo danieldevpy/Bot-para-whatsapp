@@ -1,5 +1,5 @@
 from app.models.databases import session
-from app.models.modelsUser import User, Grupo
+from app.models.modelsUser import User, Group
 
 
 # function to fetch the user in the database
@@ -34,7 +34,7 @@ def update_information(number, name, unity, sector, level, menu, stage, message,
     if stage:
         query.stage = stage
     if message:
-        query.stage = message
+        query.message = message
     if active:
         query.active = active
 
