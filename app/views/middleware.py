@@ -160,7 +160,7 @@ class Mid:
                     f'*1*. Falar com o TI. ', self.same_line)
                 self.text_field.send_keys(
                     f'*2*. Falar com o RH. ', Keys.ENTER)
-                self.user.reset_user()
+                # self.user.reset_user()
 
         elif self.user.active == 3:
             self.text_field.send_keys(
