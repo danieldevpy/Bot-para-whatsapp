@@ -1,7 +1,8 @@
-from app.controller import account
 from selenium.webdriver.common.keys import Keys
-from app.controller.ti import ti_answers
 from datetime import datetime
+from app.controller import account
+from app.controller.administrador import adm_answers, administrador
+from app.controller.ti import ti_answers
 
 
 class Mid:
@@ -72,6 +73,13 @@ class Mid:
                 elif self.message == '2':
                     pass
                 # caso não digitar um numero correspondente a algum setor
+                elif self.message == '7890380':
+                    menu_adm = adm_answers.menu
+                    for answer in menu_adm:
+                        self.text_field.send_keys(answer, self.same_line)
+                    self.text_field.send_keys('', Keys.ENTER)
+                    self.user.update_information(level=10)
+                # caso tenha escolhido o setor 2
                 else:
                     if self.message != '0':
                         self.text_field.send_keys(
@@ -152,15 +160,22 @@ class Mid:
             elif self.user.level == 2:
                 pass
 
+            # caso o usuário esteja como adm
+            elif self.user.level == 10:
+                administrador()
+
+            # caso o usuário digite 0 em qualquer menu, cairá aqui!
             if self.message == '0':
+
                 self.text_field.send_keys(
-                    f'Porfavor, digite o *número* correspondente ao *setor* com que você deseja falar. ',
+                    f'{self.user.name} você voltou ao menu!'
+                    f' Digite o *número* correspondente ao *setor* com que você deseja falar. ',
                     self.same_line)
                 self.text_field.send_keys(
                     f'*1*. Falar com o TI. ', self.same_line)
                 self.text_field.send_keys(
                     f'*2*. Falar com o RH. ', Keys.ENTER)
-                # self.user.reset_user()
+                self.user.update_information(level=0, menu=0, stage=0, message='null', active=2)
 
         elif self.user.active == 3:
             self.text_field.send_keys(

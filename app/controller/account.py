@@ -57,4 +57,5 @@ class Account:
                                 level=0, menu=0, stage=0, message='Null', active=3)
 
     def finishing(self, message):
+        message = f'Um novo chamado foi aberto no GLPI, infos: [{self.name, self.unity, self.sector}]'
         group = crud.alert_group(message)

@@ -20,22 +20,21 @@ def create_user(number):
 # function to update user
 def update_information(number, name, unity, sector, level, menu, stage, message, active):
     query = session.query(User).filter(User.number == number).first()
-
-    if name:
+    if name is not None:
         query.name = name
-    if unity:
+    if unity is not None:
         query.unity = unity
-    if sector:
+    if sector is not None:
         query.sector = sector
-    if level:
+    if level is not None:
         query.level = level
-    if menu:
+    if menu is not None:
         query.menu = menu
-    if stage:
+    if stage is not None:
         query.stage = stage
-    if message:
+    if message is not None:
         query.message = message
-    if active:
+    if active is not None:
         query.active = active
 
     session.add(query)
@@ -44,4 +43,6 @@ def update_information(number, name, unity, sector, level, menu, stage, message,
 
 
 def alert_group(message):
-    pass
+    query = Group(message=message)
+    session.add(query)
+    session.commit()
