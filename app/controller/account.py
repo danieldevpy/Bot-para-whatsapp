@@ -1,4 +1,5 @@
 from app.models import crud
+import requests
 
 
 # Class to perform data manipulation
@@ -15,6 +16,9 @@ class Account:
         self.message = None
         self.active = None
 
+    def create_user(self):
+        crud.create_user(number=self.number)
+
     def get_user(self):
         user = crud.get_user(number=self.number)
         if user is not None:
@@ -28,17 +32,6 @@ class Account:
             self.active = user.active
 
         return user
-
-    def create_user(self):
-        user = crud.create_user(number=self.number)
-        self.name = user.name
-        self.unity = user.unity
-        self.sector = user.sector
-        self.level = user.level
-        self.menu = user.menu
-        self.stage = user.stage
-        self.message = user.message
-        self.active = user.active
 
     def update_information(self, name=None, unity=None, sector=None, level=None, menu=None,
                            stage=None, message=None, active=None):
@@ -57,5 +50,8 @@ class Account:
                                 level=0, menu=0, stage=0, message='Null', active=3)
 
     def finishing(self, message):
-        message = f'Um novo chamado foi aberto no GLPI, infos: [{self.name, self.unity, self.sector}]'
-        group = crud.alert_group(message)
+        message_group = f'Um novo chamado foi aberto no GLPI, por: [{self.name, self.unity, self.sector}]'
+        crud.alert_group(message_group)
+        title = f'Chamado aberto por: {self.name}/{self.unity}/{self.sector}'
+        url = f'http://localhost:2000/{title}/{message}'
+        requests.get(url)

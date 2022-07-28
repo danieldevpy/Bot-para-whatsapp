@@ -1,5 +1,6 @@
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime
+from threading import Thread
 from app.controller import account
 from app.controller.administrador import adm_answers, administrador
 from app.controller.ti import ti_answers
@@ -36,7 +37,13 @@ class Mid:
                 hour = 'Tudo bem?'
 
             self.text_field.send_keys(
-                f'Olá, {hour}! Sou *CisBoot*, o robô virtual do CISBAF, para começarmos digite o seu *nome*!',
+                f'*Olá*, {hour}! Sou *CisBoot*, o robô virtual do *CISBAF*.',
+                self.same_line)
+            self.text_field.send_keys(
+                f'Percebo que esse é o nosso primeiro contato, então aqui vai uma dica! ⬇',
+                self.same_line)
+            self.text_field.send_keys(
+                f'Eu converso com as pessoas por etapas, então para começarmos diga o seu *nome* por favor!',
                 Keys.ENTER)
             self.user.update_information(active=1)
 
@@ -136,6 +143,7 @@ class Mid:
 
                 # caso o usuario já tiver escolhido o menu 1, aqui vão as opções do menu 1
                 elif self.user.menu == 1:
+                    # estado inicial do menu 1
                     if self.user.stage == 0.0:
                         if self.message == '1':
                             option_1_1 = ti_answers.option_1_1
@@ -153,8 +161,14 @@ class Mid:
 
                     elif self.user.stage == 1.0:
                         if self.message != '0':
+                            message_finality = ti_answers.message_finality
+                            for answer in message_finality:
+                                self.text_field.send_keys(answer, self.same_line)
+                            self.text_field.send_keys('', Keys.ENTER)
                             self.user.reset_user()
-                            self.user.finishing(self.message)
+                            called = f'Problema na hora do login: {self.message}'
+                            Thread(target=self.user.finishing, args=(called,)).start()
+
 
             # caso o usuario tenha escolhido o setor 2
             elif self.user.level == 2:
@@ -162,7 +176,8 @@ class Mid:
 
             # caso o usuário esteja como adm
             elif self.user.level == 10:
-                administrador()
+                administrador.Adm(user=self.user, text_field=self.text_field,
+                                  message=self.message, same_line=self.same_line)
 
             # caso o usuário digite 0 em qualquer menu, cairá aqui!
             if self.message == '0':

@@ -46,3 +46,8 @@ def alert_group(message):
     query = Group(message=message)
     session.add(query)
     session.commit()
+
+
+def get_group():
+    query = session.query(Group).all()
+    return query

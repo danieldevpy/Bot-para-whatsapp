@@ -2,12 +2,14 @@ from selenium import webdriver
 import time
 from selenium.webdriver.common.keys import Keys
 from app.views import middleware
+from app.models.crud import get_group
 
 
 driver = webdriver.Chrome()
 driver.get('https://web.whatsapp.com/')
 
 time.sleep(15)
+
 
 def bot():
     try:
@@ -37,8 +39,8 @@ def bot():
         # # RESPONDENDO
         middleware.Mid(number, message, text_field)
 
-        # VOLTAR PARA O CONTATO PADRÃO
-        for _ in range(2):
+        while True:
+            # VOLTAR PARA O CONTATO PADRÃO
             contato_padrao = driver.find_element_by_class_name('_2XH9R')
             acao_contato = webdriver.common.action_chains.ActionChains(driver)
             acao_contato.move_to_element_with_offset(contato_padrao, 0, -20)
@@ -47,11 +49,18 @@ def bot():
             acao_contato.click()
             acao_contato.perform()
             time.sleep(0.5)
+            name_fixo = driver.find_element_by_xpath('//*[@id="main"]/header/div[2]/div[1]/div/span')
+            name = name_fixo.text
+            if name == "Clarooo":
+                query = get_group()
+                if query:
+                    pass
+                break
 
     except:
         time.sleep(1)
         print('.')
 
+
 while True:
     bot()
-
