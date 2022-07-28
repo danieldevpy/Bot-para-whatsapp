@@ -8,7 +8,8 @@ class Group(Base):
     id = Column(Integer, primary_key=True)
     message = Column(String)
 
-
+    def __repr__(self):
+        return f'{self.message}'
 # Class models responsible for creating the table in the database
 class User(Base):
     __tablename__ = 'users'

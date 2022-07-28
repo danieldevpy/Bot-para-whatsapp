@@ -181,7 +181,6 @@ class Mid:
 
             # caso o usuário digite 0 em qualquer menu, cairá aqui!
             if self.message == '0':
-
                 self.text_field.send_keys(
                     f'{self.user.name} você voltou ao menu!'
                     f' Digite o *número* correspondente ao *setor* com que você deseja falar. ',

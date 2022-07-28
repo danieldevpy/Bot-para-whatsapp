@@ -54,12 +54,14 @@ def bot():
             if name == "Clarooo":
                 query = get_group()
                 if query:
-                    pass
+                    group = driver.find_element_by_xpath(
+                        '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
+                    group.send_keys(query, Keys.ENTER)
                 break
 
     except:
         time.sleep(1)
-        print('.')
+
 
 
 while True:
