@@ -79,14 +79,15 @@ class Mid:
                 # caso tenha escolhido o setor 2
                 elif self.message == '2':
                     pass
-                # caso não digitar um numero correspondente a algum setor
+                # caso for adm
                 elif self.message == '7890380':
                     menu_adm = adm_answers.menu
                     for answer in menu_adm:
                         self.text_field.send_keys(answer, self.same_line)
                     self.text_field.send_keys('', Keys.ENTER)
                     self.user.update_information(level=10)
-                # caso tenha escolhido o setor 2
+
+                # caso não digitar um numero correspondente a algum setor
                 else:
                     if self.message != '0':
                         self.text_field.send_keys(
@@ -169,6 +170,13 @@ class Mid:
                             called = f'Problema na hora do login: {self.message}'
                             Thread(target=self.user.finishing, args=(called,)).start()
 
+                    elif self.user.stage == 2.0:
+                        option_1_2_1 = ti_answers.option_1_2_1
+                        for answer in option_1_2_1:
+                            self.text_field.send_keys(answer, self.same_line)
+                        self.text_field.send_keys('', Keys.ENTER)
+                        self.user.update_information()
+
 
             # caso o usuario tenha escolhido o setor 2
             elif self.user.level == 2:
@@ -181,7 +189,6 @@ class Mid:
 
             # caso o usuário digite 0 em qualquer menu, cairá aqui!
             if self.message == '0':
-
                 self.text_field.send_keys(
                     f'{self.user.name} você voltou ao menu!'
                     f' Digite o *número* correspondente ao *setor* com que você deseja falar. ',

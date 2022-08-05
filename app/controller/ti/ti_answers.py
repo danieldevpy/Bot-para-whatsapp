@@ -6,15 +6,16 @@ menu = ['*Você escolheu o setor de TI, agora digite o número correspondente ao
 
 # all options 1
 option_1 = ['*Entendido, diga o que você precisa!*', '*1*. Problema na hora do login', '*2*. Criação de login']
+# problema na hora do login
+option_1_1 = ['Digite um *texto* explicando a solicitação que ele será passado para o setor de TI!']
+#
+# criação de login
+option_1_2 = ['Entendido, para criar o login, primeiro digite o *nome completo*']
 
-option_1_1 = ['Digite um *texto* explicando o problema que ele será passado para o setor de TI!']
+option_1_2_1 = ['Agora digite o *CPF*']
 
-option_1_2 = ['Entendido, para criar o login, digite o seu *nome completo*']
-
-option_1_2_1 = ['Agora digite o seu *CPF*']
-
-option_1_2_2 = ['Agora digite seu *CARGO*']
-
+option_1_2_2 = ['Agora digite o *CARGO*']
+#
 
 # all options 2
 option_2 = ['*Qual tipo de problema?*', '*1*. Ocorrencia não chega', '*2*. Ocorrencia travada',

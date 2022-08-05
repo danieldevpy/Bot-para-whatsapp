@@ -17,7 +17,15 @@ class Account:
         self.active = None
 
     def create_user(self):
-        crud.create_user(number=self.number)
+        user = crud.create_user(number=self.number)
+        self.name = user.name
+        self.unity = user.unity
+        self.sector = user.sector
+        self.level = user.level
+        self.menu = user.menu
+        self.stage = user.stage
+        self.message = user.message
+        self.active = user.active
 
     def get_user(self):
         user = crud.get_user(number=self.number)
@@ -50,7 +58,7 @@ class Account:
                                 level=0, menu=0, stage=0, message='Null', active=3)
 
     def finishing(self, message):
-        message_group = f'Um novo chamado foi aberto no GLPI, por: [{self.name, self.unity, self.sector}]'
+        message_group = f'Um novo chamado foi aberto no GLPI, por: [{self.name, self.unity, self.sector, self.number}]'
         crud.alert_group(message_group)
         title = f'Chamado aberto por: {self.name}/{self.unity}/{self.sector}'
         url = f'http://localhost:2000/{title}/{message}'
