@@ -1,3 +1,4 @@
+import threading
 from app.models import crud
 import requests
 
@@ -62,4 +63,5 @@ class Account:
         crud.alert_group(message_group)
         title = f'Chamado aberto por: {self.name}/{self.unity}/{self.sector}'
         url = f'http://localhost:2000/{title}/{message}'
-        requests.get(url)
+        open_glpi = lambda: requests.get(url)
+        threading.Thread(target=open_glpi).start()

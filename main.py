@@ -48,7 +48,7 @@ def bot():
             acao_contato.perform()
             acao_contato.click()
             acao_contato.perform()
-            time.sleep(0.5)
+            time.sleep(0.2)
             name_fixo = driver.find_element_by_xpath('//*[@id="main"]/header/div[2]/div[1]/div/span')
             name = name_fixo.text
             if name == "Clarooo":

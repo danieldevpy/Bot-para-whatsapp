@@ -10,13 +10,13 @@ option_1 = ['*Entendido, diga o que você precisa!*', '*1*. Problema na hora do 
 option_1_1 = ['Digite um *texto* explicando a solicitação que ele será passado para o setor de TI!']
 #
 # criação de login
-option_1_2 = ['Entendido, para criar o login, primeiro digite o *nome completo*']
+option_1_2 = ['Entendido, para criar o login, primeiro digite o *NOME COMPLETO*']
 
 option_1_2_1 = ['Agora digite o *CPF*']
 
 option_1_2_2 = ['Agora digite o *CARGO*']
 
-option_1_2_3 = ['Certo, ja vamos abrir uma solicitação! Deseja criar mais algum login?', '*1:* SIM', '*2* NÃO']
+option_1_2_3 = ['Certo, ja vamos abrir uma solicitação! Deseja criar mais algum login?', '*1.* SIM', '*2.* NÃO']
 
 #
 

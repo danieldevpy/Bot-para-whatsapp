@@ -54,7 +54,7 @@ class Mid:
                 self.text_field.send_keys(f'Obrigado *{self.user.name}*, me diga qual é a sua *unidade.* ', Keys.ENTER)
             elif self.user.unity is None:
                 self.user.update_information(unity=self.message)
-                self.text_field.send_keys(f'*Certo, agora me diga qual o seu setor!* ', Keys.ENTER)
+                self.text_field.send_keys(f'Certo, agora me diga qual o seu *setor!* ', Keys.ENTER)
             elif self.user.sector is None:
                 self.user.update_information(sector=self.message, active=2)
                 self.text_field.send_keys(
@@ -168,7 +168,7 @@ class Mid:
                             self.text_field.send_keys('', Keys.ENTER)
                             self.user.reset_user()
                             called = f'Problema na hora do login: {self.message}'
-                            Thread(target=self.user.finishing, args=(called,)).start()
+                            self.user.finishing(called)
                     # estagio 2.0
                     elif self.user.stage == 2.0:
                         option_1_2_1 = ti_answers.option_1_2_1
@@ -193,7 +193,8 @@ class Mid:
                         self.text_field.send_keys('', Keys.ENTER)
                         called = f'{self.user.message}, Cargo: {self.message}'
                         self.user.update_information(stage=2.3)
-                        Thread(target=self.user.finishing, args=(called,)).start()
+                        self.user.finishing(called)
+
 
                     elif self.user.stage == 2.3:
                         if self.message == '1':
