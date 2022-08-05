@@ -159,7 +159,7 @@ class Mid:
                                 self.text_field.send_keys(answer, self.same_line)
                             self.text_field.send_keys('', Keys.ENTER)
                             self.user.update_information(stage=2.0)
-
+                    # stagio 1.0
                     elif self.user.stage == 1.0:
                         if self.message != '0':
                             message_finality = ti_answers.message_finality
@@ -169,14 +169,50 @@ class Mid:
                             self.user.reset_user()
                             called = f'Problema na hora do login: {self.message}'
                             Thread(target=self.user.finishing, args=(called,)).start()
-
+                    # estagio 2.0
                     elif self.user.stage == 2.0:
                         option_1_2_1 = ti_answers.option_1_2_1
                         for answer in option_1_2_1:
                             self.text_field.send_keys(answer, self.same_line)
                         self.text_field.send_keys('', Keys.ENTER)
-                        self.user.update_information()
+                        called = f'Criação de login, Nome: {self.message}'
+                        self.user.update_information(message=called, stage=2.1)
 
+                    elif self.user.stage == 2.1:
+                        option_1_2_2 = ti_answers.option_1_2_2
+                        for answer in option_1_2_2:
+                            self.text_field.send_keys(answer, self.same_line)
+                        self.text_field.send_keys('', Keys.ENTER)
+                        called = f'{self.user.message}, CPF: {self.message}'
+                        self.user.update_information(message=called, stage=2.2)
+
+                    elif self.user.stage == 2.2:
+                        option_1_2_3 = ti_answers.option_1_2_3
+                        for answer in option_1_2_3:
+                            self.text_field.send_keys(answer, self.same_line)
+                        self.text_field.send_keys('', Keys.ENTER)
+                        called = f'{self.user.message}, Cargo: {self.message}'
+                        self.user.update_information(stage=2.3)
+                        Thread(target=self.user.finishing, args=(called,)).start()
+
+                    elif self.user.stage == 2.3:
+                        if self.message == '1':
+                            option_1_2 = ti_answers.option_1_2
+                            for answer in option_1_2:
+                                self.text_field.send_keys(answer, self.same_line)
+                            self.text_field.send_keys('', Keys.ENTER)
+                            self.user.update_information(stage=2.0)
+                        elif self.message == '2':
+                            message_finality = ti_answers.message_finality
+                            for answer in message_finality:
+                                self.text_field.send_keys(answer, self.same_line)
+                            self.text_field.send_keys('', Keys.ENTER)
+                            self.user.reset_user()
+                        else:
+                            option_1_2_3 = ti_answers.option_1_2_3
+                            for answer in option_1_2_3:
+                                self.text_field.send_keys(answer, self.same_line)
+                            self.text_field.send_keys('', Keys.ENTER)
 
             # caso o usuario tenha escolhido o setor 2
             elif self.user.level == 2:

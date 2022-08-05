@@ -15,6 +15,9 @@ option_1_2 = ['Entendido, para criar o login, primeiro digite o *nome completo*'
 option_1_2_1 = ['Agora digite o *CPF*']
 
 option_1_2_2 = ['Agora digite o *CARGO*']
+
+option_1_2_3 = ['Certo, ja vamos abrir uma solicitação! Deseja criar mais algum login?', '*1:* SIM', '*2* NÃO']
+
 #
 
 # all options 2
