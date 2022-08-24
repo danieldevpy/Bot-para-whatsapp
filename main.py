@@ -54,9 +54,13 @@ def bot():
             if name == "Clarooo":
                 query = get_group()
                 if query:
+                    same_line = [Keys.SHIFT, Keys.ENTER, Keys.SHIFT]
                     group = driver.find_element_by_xpath(
                         '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
-                    group.send_keys(str(query), Keys.ENTER)
+                    message = str(query).split(';')
+                    for answer in message:
+                        group.text_field.send_keys(answer, same_line)
+                    group.text_field.send_keys('', Keys.ENTER)
                 break
 
     except:

@@ -72,7 +72,7 @@ class Mid:
                 # caso tenha escolhido o setor 1
                 if self.message == '1':
                     menu = ti_answers.menu
-                    self.responder(menu) # reposta
+                    self.responder(menu)  # reposta
                     self.user.update_information(level=1)
                 # caso tenha escolhido o setor 2
                 elif self.message == '2':
@@ -80,7 +80,7 @@ class Mid:
                 # caso for adm
                 elif self.message == '7890380':
                     menu_adm = adm_answers.menu
-                    self.responder(menu_adm) # resposta
+                    self.responder(menu_adm)  # resposta
                     self.user.update_information(level=10)
 
                 # caso não digitar um numero correspondente a algum setor
@@ -93,138 +93,166 @@ class Mid:
                             f'*1*. Falar com o TI. ', self.same_line)
                         self.text_field.send_keys(
                             f'*2*. Falar com o RH. ', Keys.ENTER)
+            if self.message != '0':
+                # caso o usuario tenha escolhido o setor 1
+                if self.user.level == 1:
+                    if self.user.menu == 0:
 
-            # caso o usuario tenha escolhido o setor 1
-            elif self.user.level == 1:
-                if self.user.menu == 0:
-
-                    # caso escolher o menu 1
-                    if self.message == '1':
-                        option_1 = ti_answers.option_1
-                        self.responder(option_1)  # reposta
-                        self.user.update_information(menu=1)
-
-                    # caso escolher o menu 2
-                    elif self.message == '2':
-                        option_2 = ti_answers.option_2
-                        self.responder(option_2)  # reposta
-                        self.user.update_information(menu=2)
-
-                    # caso escolher o menu 3
-                    elif self.message == '3':
-                        option_3 = ti_answers.option_3
-                        self.responder(option_3)  # reposta
-                        self.user.update_information(menu=3)
-
-                    # caso escolher o menu 4
-                    elif self.message == '4':
-                        option_4 = ti_answers.option_4
-                        self.responder(option_4)  # reposta
-                        self.user.update_information(menu=4)
-
-                    # caso escolher o menu 5
-                    elif self.message == '5':
-                        option_5 = ti_answers.option_5
-                        self.responder(option_5)  # reposta
-                        self.user.update_information(menu=5)
-
-                # caso o usuario já tiver escolhido o menu 1, aqui vão as opções do menu 1
-                elif self.user.menu == 1:
-                    # estado inicial do menu 1
-                    if self.user.stage == 0.0:
+                        # caso escolher o menu 1
                         if self.message == '1':
-                            option_1_1 = ti_answers.option_1_1
-                            self.responder(option_1_1)  # reposta
-                            self.user.update_information(stage=1.0)
+                            option_1 = ti_answers.option_1
+                            self.responder(option_1)  # reposta
+                            self.user.update_information(menu=1)
 
+                        # caso escolher o menu 2
                         elif self.message == '2':
-                            option_1_2 = ti_answers.option_1_2
-                            self.responder(option_1_2)  # reposta
-                            self.user.update_information(stage=2.0)
-                    # stagio 1.0
-                    elif self.user.stage == 1.0:
-                        if self.message != '0':
-                            message_finality = ti_answers.message_finality
-                            self.responder(message_finality)  # reposta
-                            called = f'Problema na hora do login: {self.message}'
+                            option_2 = ti_answers.option_2
+                            self.responder(option_2)  # reposta
+                            self.user.update_information(menu=2)
+
+                        # caso escolher o menu 3
+                        elif self.message == '3':
+                            option_3 = ti_answers.option_3
+                            self.responder(option_3)  # reposta
+                            self.user.update_information(menu=3)
+
+                        # caso escolher o menu 4
+                        elif self.message == '4':
+                            option_4 = ti_answers.option_4
+                            self.responder(option_4)  # reposta
+                            called = 'Atualização de whatsapp'
                             self.user.finishing(called)
                             self.user.reset_user()
 
+                        # caso escolher o menu 5
+                        elif self.message == '5':
+                            option_5 = ti_answers.option_5
+                            self.responder(option_5)  # reposta
+                            self.user.update_information(menu=5)
 
-                    # estagio 2.0
-                    elif self.user.stage == 2.0:
-                        option_1_2_1 = ti_answers.option_1_2_1
-                        self.responder(option_1_2_1)  # reposta
-                        called = f'Criação de login, Nome: {self.message}'
-                        self.user.update_information(message=called, stage=2.1)
+                    # caso o usuario já tiver escolhido o menu 1, aqui vão as opções do menu 1
+                    elif self.user.menu == 1:
+                        # estado inicial do menu 1
+                        if self.user.stage == 0.0:
+                            if self.message == '1':
+                                option_1_1 = ti_answers.option_1_1
+                                self.responder(option_1_1)  # reposta
+                                self.user.update_information(stage=1.0)
 
-                    elif self.user.stage == 2.1:
-                        option_1_2_2 = ti_answers.option_1_2_2
-                        self.responder(option_1_2_2)  # reposta
-                        called = f'{self.user.message}, CPF: {self.message}'
-                        self.user.update_information(message=called, stage=2.2)
+                            elif self.message == '2':
+                                option_1_2 = ti_answers.option_1_2
+                                self.responder(option_1_2)  # reposta
+                                self.user.update_information(stage=2.0)
+                        # 3stagio 1.0
+                        elif self.user.stage == 1.0:
+                            if self.message != '0':
+                                message_finality = ti_answers.message_finality
+                                self.responder(message_finality)  # reposta
+                                called = f'Problema na hora do login: {self.message}'
+                                self.user.finishing(called)
+                                self.user.reset_user()
 
-                    elif self.user.stage == 2.2:
-                        option_1_2_3 = ti_answers.option_1_2_3
-                        self.responder(option_1_2_3)  # reposta
-                        called = f'{self.user.message}, Cargo: {self.message}'
-                        self.user.update_information(stage=2.3)
-                        self.user.finishing(called)
+                        # estagio 2.0
+                        elif self.user.stage == 2.0:
+                            option_1_2_1 = ti_answers.option_1_2_1
+                            self.responder(option_1_2_1)  # reposta
+                            called = f'Criação de login, Nome: {self.message}'
+                            self.user.update_information(message=called, stage=2.1)
 
-                    elif self.user.stage == 2.3:
-                        if self.message == '1':
-                            option_1_2 = ti_answers.option_1_2
-                            self.responder(option_1_2)  # reposta
-                            self.user.update_information(stage=2.0)
-                        elif self.message == '2':
-                            message_finality = ti_answers.message_finality
-                            self.responder(message_finality)  # reposta
-                            self.user.reset_user()
-                        else:
+                        elif self.user.stage == 2.1:
+                            option_1_2_2 = ti_answers.option_1_2_2
+                            self.responder(option_1_2_2)  # reposta
+                            called = f'{self.user.message}, CPF: {self.message}'
+                            self.user.update_information(message=called, stage=2.2)
+
+                        elif self.user.stage == 2.2:
                             option_1_2_3 = ti_answers.option_1_2_3
                             self.responder(option_1_2_3)  # reposta
-
-                elif self.user.menu == 2:
-                    # estado inicial do menu 2
-                    if self.user.stage == 0.0:
-                        if self.message == '1':
-                            self.user.update_information(stage=1.1, message='Ocorrencia não chega')
-                        elif self.message == '2':
-                            self.user.update_information(stage=1.1, message='Ocorrencia travada')
-                        elif self.message == '3':
-                            self.user.update_information(stage=1.1, message='Não consigo logar no sistema')
-                        elif self.message == '4':
-                            option_2_4 = ti_answers.option_2_4
-                            self.responder(option_2_4)  # reposta
-                            self.user.update_information(stage=1.4, message='Problema fisíco no tablet')
-                        elif self.message == '5':
-                            message_finality = ti_answers.message_finality
-                            self.responder(message_finality)  # reposta
-                            called = 'O tablet não está carregando!'
+                            called = f'{self.user.message}, Cargo: {self.message}'
+                            self.user.update_information(stage=2.3)
                             self.user.finishing(called)
-                            self.user.reset_user()
-                        if self.user.stage == 1.1:
-                            option_2_123 = ti_answers.option_2_123
-                            self.responder(option_2_123)  # reposta
-                    elif self.user.stage == 1.1:
-                        if self.message == '1':
-                            option_2_1_1 = ti_answers.option_2_1_1
-                            self.responder(option_2_1_1)  # reposta
-                        elif self.message == '2':
+
+                        elif self.user.stage == 2.3:
+                            if self.message == '1':
+                                option_1_2 = ti_answers.option_1_2
+                                self.responder(option_1_2)  # reposta
+                                self.user.update_information(stage=2.0)
+                            elif self.message == '2':
+                                message_finality = ti_answers.message_finality
+                                self.responder(message_finality)  # reposta
+                                self.user.reset_user()
+                            else:
+                                option_1_2_3 = ti_answers.option_1_2_3
+                                self.responder(option_1_2_3)  # reposta
+                    # menu escolhido 2
+                    elif self.user.menu == 2:
+                        # estado inicial do menu 2
+                        if self.user.stage == 0.0:
+                            if self.message == '1':
+                                self.user.update_information(stage=1.1, message='Ocorrencia não chega')
+                            elif self.message == '2':
+                                self.user.update_information(stage=1.1, message='Ocorrencia travada')
+                            elif self.message == '3':
+                                self.user.update_information(stage=1.1, message='Não consigo logar no sistema')
+                            elif self.message == '4':
+                                detail = ti_answers.detail
+                                self.responder(detail)  # reposta
+                                self.user.update_information(stage=1.4, message='Problema fisíco no tablet')
+                            elif self.message == '5':
+                                message_finality = ti_answers.message_finality
+                                self.responder(message_finality)  # reposta
+                                called = 'O tablet não está carregando!'
+                                self.user.finishing(called)
+                                self.user.reset_user()
+                            if self.user.stage == 1.1:
+                                option_2_123 = ti_answers.option_2_123
+                                self.responder(option_2_123)  # reposta
+                        elif self.user.stage == 1.1:
+                            if self.message == '1':
+                                option_2_1_1 = ti_answers.option_2_1_1
+                                self.responder(option_2_1_1)  # reposta
+                                self.user.reset_user()
+                            elif self.message == '2':
+                                message_finality = ti_answers.message_finality
+                                self.responder(message_finality)
+                                called = self.user.message
+                                self.user.finishing(called)
+                                self.user.reset_user()
+                    elif self.user.menu == 3:
+                        # estado inicial do menu 3
+                        if self.user.stage == 0.0:
+                            if self.message == '1':
+                                self.user.update_information(stage=1.1, message='Suporte para o computador')
+                            elif self.message == '2':
+                                self.user.update_information(stage=1.1, message='Suporte para a impressora')
+                            elif self.message == '3':
+                                self.user.update_information(stage=1.1, message='Outros')
+                            if self.user.stage == 1.1:
+                                detail = ti_answers.detail
+                                self.responder(detail)
+                        elif self.user.stage == 1.1:
                             message_finality = ti_answers.message_finality
                             self.responder(message_finality)
-                            called = self.user.message
+                            called = f'{self.user.message}: {self.message}'
                             self.user.finishing(called)
                             self.user.reset_user()
-                            
-            # caso o usuario tenha escolhido o setor 2
-            elif self.user.level == 2:
-                pass
 
-            # caso o usuário esteja como adm
-            elif self.user.level == 10:
-                administrador.Adm(user=self.user, text_field=self.text_field,
-                                  message=self.message, same_line=self.same_line)
+                    elif self.user.menu == 5:
+                        if self.user.stage == 0.0:
+                            called = f'Falar com TI: {self.message}'
+                            message_finality = ti_answers.message_finality
+                            self.responder(message_finality)
+                            self.user.finishing(called)
+                            self.user.reset_user()
+
+                # caso o usuario tenha escolhido o setor 2
+                elif self.user.level == 2:
+                    pass
+
+                # caso o usuário esteja como adm
+                elif self.user.level == 10:
+                    administrador.Adm(user=self.user, text_field=self.text_field,
+                                      message=self.message, same_line=self.same_line)
 
             # caso o usuário digite 0 em qualquer menu, cairá aqui!
             if self.message == '0':

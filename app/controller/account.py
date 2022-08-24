@@ -59,7 +59,8 @@ class Account:
                                 level=0, menu=0, stage=0, message='Null', active=3)
 
     def finishing(self, message):
-        message_group = f'Um novo chamado foi aberto no GLPI, por: [{self.name, self.unity, self.sector, self.number}]'
+        message_group = f'*CHAMADO ABERTO NO GLPI*;Solicitante: {self.name}, {self.sector},' \
+                        f' {self.unity};Solicitação: {message}; Numero para contato: {self.number}'
         crud.alert_group(message_group)
         title = f'Chamado aberto por: {self.name}/{self.unity}/{self.sector}'
         url = f'http://localhost:2000/{title}/{message}'

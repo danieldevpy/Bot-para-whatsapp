@@ -30,7 +30,7 @@ option_2_123 = [
 option_2_1_1 = ['Que bom que você conseguiu resolver o problema,'
                 ' ficamos felizes que podemos te ajudar! Qualquer coisa entre em contato!']
 
-option_2_4 = ['Me diga o que está acontecendo, para abrirmos um chamado!']
+
 
 # all options 3
 
@@ -44,5 +44,5 @@ option_4 = ['*Ok! Aguarde o suporte entrar em contato, para atualizar o seu What
 
 option_5 = ['Ok, me diga o motivo do contato, que abriremos uma solitação e o suporte logo entrará em contato!']
 
-
+detail = ['Me diga o que está acontecendo, para abrirmos um chamado!']
 message_finality = ['*O chamado foi aberto, por favor aguarde o suporte entrar em contato contato!*']
