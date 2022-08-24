@@ -37,8 +37,10 @@ def bot():
             '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
 
         # # RESPONDENDO
-        middleware.Mid(number, message, text_field)
-
+        try:
+            middleware.Mid(number, message, text_field)
+        except: pass
+        
         while True:
             # VOLTAR PARA O CONTATO PADRÃO
             contato_padrao = driver.find_element_by_class_name('_2XH9R')
