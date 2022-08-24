@@ -37,10 +37,8 @@ def bot():
             '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
 
         # # RESPONDENDO
-        try:
-            middleware.Mid(number, message, text_field)
-        except: pass
-        
+        middleware.Mid(number, message, text_field)
+
         while True:
             # VOLTAR PARA O CONTATO PADRÃO
             contato_padrao = driver.find_element_by_class_name('_2XH9R')
@@ -53,7 +51,7 @@ def bot():
             time.sleep(0.2)
             name_fixo = driver.find_element_by_xpath('//*[@id="main"]/header/div[2]/div[1]/div/span')
             name = name_fixo.text
-            if name == "Clarooo":
+            if name == "TI Cisbaf":
                 query = get_group()
                 if query:
                     same_line = [Keys.SHIFT, Keys.ENTER, Keys.SHIFT]
@@ -61,10 +59,9 @@ def bot():
                         '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
                     message = str(query).split(';')
                     for answer in message:
-                        group.text_field.send_keys(answer, same_line)
-                    group.text_field.send_keys('', Keys.ENTER)
+                        group.send_keys(answer, same_line)
+                    group.send_keys('', Keys.ENTER)
                 break
-
     except:
         time.sleep(1)
 

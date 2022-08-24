@@ -60,7 +60,7 @@ class Account:
 
     def finishing(self, message):
         message_group = f'*CHAMADO ABERTO NO GLPI*;Solicitante: {self.name}, {self.sector},' \
-                        f' {self.unity};Solicitação: {message}; Numero para contato: {self.number}'
+                        f' {self.unity};Solicitação: {message};Numero para contato: {self.number}'
         crud.alert_group(message_group)
         title = f'Chamado aberto por: {self.name}/{self.unity}/{self.sector}'
         url = f'http://localhost:2000/{title}/{message}'
