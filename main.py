@@ -51,7 +51,7 @@ def bot():
             time.sleep(0.2)
             name_fixo = driver.find_element_by_xpath('//*[@id="main"]/header/div[2]/div[1]/div/span')
             name = name_fixo.text
-            if name == "TI Cisbaf":
+            if name == "Clarooo":
                 query = get_group()
                 if query:
                     same_line = [Keys.SHIFT, Keys.ENTER, Keys.SHIFT]
@@ -62,6 +62,7 @@ def bot():
                         group.send_keys(answer, same_line)
                     group.send_keys('', Keys.ENTER)
                 break
+
     except:
         time.sleep(1)
 
