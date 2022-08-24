@@ -1,6 +1,6 @@
 from selenium.webdriver.common.keys import Keys
 from app.controller.account import Account
-import adm_answers
+from app.controller.administrador import adm_answers
 
 class Adm:
     def __init__(self, user, text_field, message, same_line):
@@ -23,12 +23,7 @@ class Adm:
                 awnser = str(self.message).split(',')
                 detail = adm_answers.detail
                 user = Account(awnser[0])
-                if len(awnser) == 2:
-                    user.update_information(name=awnser[1])
-                elif len(awnser) == 3:
-                    user.update_information(name=awnser[1], unity=awnser[2])
-                elif len(awnser) == 4:
-                    user.update_information(name=awnser[1], unity=awnser[2], sector=awnser[3])
+                user.update_information(name=awnser[1], unity=awnser[2], sector=awnser[3])
                 self.responder(detail)
                 self.user.update_information(menu=9)
         elif self.user.menu == 2:
