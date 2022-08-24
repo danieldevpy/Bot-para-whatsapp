@@ -23,6 +23,14 @@ option_1_2_3 = ['Certo, ja vamos abrir uma solicitação! Deseja criar mais algu
 # all options 2
 option_2 = ['*Qual tipo de problema?*', '*1*. Ocorrencia não chega', '*2*. Ocorrencia travada',
             '*3*. Não consigo logar no sistema', '*4*. Problemas físicos', '*5*. Tablet não carrega']
+option_2_123 = [
+    'Verifique o sinal de internet (Dados Móveis),'
+    ' desligue o wifi e reinicie o equipamento.O problema foi solucionado?', '*1*. SIM', '*2*. NÃO']
+
+option_2_1_1 = ['Que bom que você conseguiu resolver o problema,'
+                ' ficamos felizes que podemos te ajudar! Qualquer coisa entre em contato!']
+
+option_2_4 = ['Me diga o que está acontecendo, para abrirmos um chamado!']
 
 # all options 3
 

@@ -72,9 +72,7 @@ class Mid:
                 # caso tenha escolhido o setor 1
                 if self.message == '1':
                     menu = ti_answers.menu
-                    for answer in menu:
-                        self.text_field.send_keys(answer, self.same_line)
-                    self.text_field.send_keys('', Keys.ENTER)
+                    self.responder(menu) # reposta
                     self.user.update_information(level=1)
                 # caso tenha escolhido o setor 2
                 elif self.message == '2':
@@ -82,9 +80,7 @@ class Mid:
                 # caso for adm
                 elif self.message == '7890380':
                     menu_adm = adm_answers.menu
-                    for answer in menu_adm:
-                        self.text_field.send_keys(answer, self.same_line)
-                    self.text_field.send_keys('', Keys.ENTER)
+                    self.responder(menu_adm) # resposta
                     self.user.update_information(level=10)
 
                 # caso não digitar um numero correspondente a algum setor
@@ -105,41 +101,31 @@ class Mid:
                     # caso escolher o menu 1
                     if self.message == '1':
                         option_1 = ti_answers.option_1
-                        for answer in option_1:
-                            self.text_field.send_keys(answer, self.same_line)
-                        self.text_field.send_keys('', Keys.ENTER)
+                        self.responder(option_1)  # reposta
                         self.user.update_information(menu=1)
 
                     # caso escolher o menu 2
                     elif self.message == '2':
                         option_2 = ti_answers.option_2
-                        for answer in option_2:
-                            self.text_field.send_keys(answer, self.same_line)
-                        self.text_field.send_keys('', Keys.ENTER)
+                        self.responder(option_2)  # reposta
                         self.user.update_information(menu=2)
 
                     # caso escolher o menu 3
                     elif self.message == '3':
                         option_3 = ti_answers.option_3
-                        for answer in option_3:
-                            self.text_field.send_keys(answer, self.same_line)
-                        self.text_field.send_keys('', Keys.ENTER)
+                        self.responder(option_3)  # reposta
                         self.user.update_information(menu=3)
 
                     # caso escolher o menu 4
                     elif self.message == '4':
                         option_4 = ti_answers.option_4
-                        for answer in option_4:
-                            self.text_field.send_keys(answer, self.same_line)
-                        self.text_field.send_keys('', Keys.ENTER)
+                        self.responder(option_4)  # reposta
                         self.user.update_information(menu=4)
 
                     # caso escolher o menu 5
                     elif self.message == '5':
                         option_5 = ti_answers.option_5
-                        for answer in option_5:
-                            self.text_field.send_keys(answer, self.same_line)
-                        self.text_field.send_keys('', Keys.ENTER)
+                        self.responder(option_5)  # reposta
                         self.user.update_information(menu=5)
 
                 # caso o usuario já tiver escolhido o menu 1, aqui vão as opções do menu 1
@@ -148,73 +134,89 @@ class Mid:
                     if self.user.stage == 0.0:
                         if self.message == '1':
                             option_1_1 = ti_answers.option_1_1
-                            for answer in option_1_1:
-                                self.text_field.send_keys(answer, self.same_line)
-                            self.text_field.send_keys('', Keys.ENTER)
+                            self.responder(option_1_1)  # reposta
                             self.user.update_information(stage=1.0)
 
                         elif self.message == '2':
                             option_1_2 = ti_answers.option_1_2
-                            for answer in option_1_2:
-                                self.text_field.send_keys(answer, self.same_line)
-                            self.text_field.send_keys('', Keys.ENTER)
+                            self.responder(option_1_2)  # reposta
                             self.user.update_information(stage=2.0)
                     # stagio 1.0
                     elif self.user.stage == 1.0:
                         if self.message != '0':
                             message_finality = ti_answers.message_finality
-                            for answer in message_finality:
-                                self.text_field.send_keys(answer, self.same_line)
-                            self.text_field.send_keys('', Keys.ENTER)
-                            self.user.reset_user()
+                            self.responder(message_finality)  # reposta
                             called = f'Problema na hora do login: {self.message}'
                             self.user.finishing(called)
+                            self.user.reset_user()
+
+
                     # estagio 2.0
                     elif self.user.stage == 2.0:
                         option_1_2_1 = ti_answers.option_1_2_1
-                        for answer in option_1_2_1:
-                            self.text_field.send_keys(answer, self.same_line)
-                        self.text_field.send_keys('', Keys.ENTER)
+                        self.responder(option_1_2_1)  # reposta
                         called = f'Criação de login, Nome: {self.message}'
                         self.user.update_information(message=called, stage=2.1)
 
                     elif self.user.stage == 2.1:
                         option_1_2_2 = ti_answers.option_1_2_2
-                        for answer in option_1_2_2:
-                            self.text_field.send_keys(answer, self.same_line)
-                        self.text_field.send_keys('', Keys.ENTER)
+                        self.responder(option_1_2_2)  # reposta
                         called = f'{self.user.message}, CPF: {self.message}'
                         self.user.update_information(message=called, stage=2.2)
 
                     elif self.user.stage == 2.2:
                         option_1_2_3 = ti_answers.option_1_2_3
-                        for answer in option_1_2_3:
-                            self.text_field.send_keys(answer, self.same_line)
-                        self.text_field.send_keys('', Keys.ENTER)
+                        self.responder(option_1_2_3)  # reposta
                         called = f'{self.user.message}, Cargo: {self.message}'
                         self.user.update_information(stage=2.3)
                         self.user.finishing(called)
 
-
                     elif self.user.stage == 2.3:
                         if self.message == '1':
                             option_1_2 = ti_answers.option_1_2
-                            for answer in option_1_2:
-                                self.text_field.send_keys(answer, self.same_line)
-                            self.text_field.send_keys('', Keys.ENTER)
+                            self.responder(option_1_2)  # reposta
                             self.user.update_information(stage=2.0)
                         elif self.message == '2':
                             message_finality = ti_answers.message_finality
-                            for answer in message_finality:
-                                self.text_field.send_keys(answer, self.same_line)
-                            self.text_field.send_keys('', Keys.ENTER)
+                            self.responder(message_finality)  # reposta
                             self.user.reset_user()
                         else:
                             option_1_2_3 = ti_answers.option_1_2_3
-                            for answer in option_1_2_3:
-                                self.text_field.send_keys(answer, self.same_line)
-                            self.text_field.send_keys('', Keys.ENTER)
+                            self.responder(option_1_2_3)  # reposta
 
+                elif self.user.menu == 2:
+                    # estado inicial do menu 2
+                    if self.user.stage == 0.0:
+                        if self.message == '1':
+                            self.user.update_information(stage=1.1, message='Ocorrencia não chega')
+                        elif self.message == '2':
+                            self.user.update_information(stage=1.1, message='Ocorrencia travada')
+                        elif self.message == '3':
+                            self.user.update_information(stage=1.1, message='Não consigo logar no sistema')
+                        elif self.message == '4':
+                            option_2_4 = ti_answers.option_2_4
+                            self.responder(option_2_4)  # reposta
+                            self.user.update_information(stage=1.4, message='Problema fisíco no tablet')
+                        elif self.message == '5':
+                            message_finality = ti_answers.message_finality
+                            self.responder(message_finality)  # reposta
+                            called = 'O tablet não está carregando!'
+                            self.user.finishing(called)
+                            self.user.reset_user()
+                        if self.user.stage == 1.1:
+                            option_2_123 = ti_answers.option_2_123
+                            self.responder(option_2_123)  # reposta
+                    elif self.user.stage == 1.1:
+                        if self.message == '1':
+                            option_2_1_1 = ti_answers.option_2_1_1
+                            self.responder(option_2_1_1)  # reposta
+                        elif self.message == '2':
+                            message_finality = ti_answers.message_finality
+                            self.responder(message_finality)
+                            called = self.user.message
+                            self.user.finishing(called)
+                            self.user.reset_user()
+                            
             # caso o usuario tenha escolhido o setor 2
             elif self.user.level == 2:
                 pass
@@ -245,3 +247,8 @@ class Mid:
             self.text_field.send_keys(
                 f'*2*. Falar com o RH. ', Keys.ENTER)
             self.user.update_information(active=2)
+
+    def responder(self, message):
+        for answer in message:
+            self.text_field.send_keys(answer, self.same_line)
+        self.text_field.send_keys('', Keys.ENTER)
