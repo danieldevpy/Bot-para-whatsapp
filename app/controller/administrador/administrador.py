@@ -2,6 +2,7 @@ from selenium.webdriver.common.keys import Keys
 from app.controller.account import Account
 from app.controller.administrador import adm_answers
 
+
 class Adm:
     def __init__(self, user, text_field, message, same_line):
         self.user = user
@@ -28,7 +29,7 @@ class Adm:
                 self.user.update_information(menu=9)
         elif self.user.menu == 2:
             user = Account(self.message)
-            user.update_information(level=777)
+            user.update_information(active=777)
             detail = adm_answers.detail
             self.responder(detail)
             self.user.update_information(menu=9)
@@ -41,6 +42,7 @@ class Adm:
                 message_finality = adm_answers.message_finality
                 self.responder(message_finality)
                 self.user.reset_user()
+
     def responder(self, message):
         for answer in message:
             self.text_field.send_keys(answer, self.same_line)

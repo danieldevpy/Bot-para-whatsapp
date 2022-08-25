@@ -62,7 +62,10 @@ class Account:
         message_group = f'*CHAMADO ABERTO NO GLPI*;Solicitante: {self.name}, {self.sector},' \
                         f' {self.unity};Solicitação: {message};Numero para contato: {self.number}'
         crud.alert_group(message_group)
-        title = f'Chamado aberto por: {self.name}/{self.unity}/{self.sector}'
-        url = f'http://localhost:2000/{title}/{message}'
-        open_glpi = lambda: requests.get(url)
-        threading.Thread(target=open_glpi).start()
+        title = f'Chamado aberto por: {self.name} {self.sector} {self.unity} '
+        threading.Thread(target=abrir_chamado, args=(title, message)).start()
+
+
+def abrir_chamado(title, message):
+    url = f'http://localhost:2000/{title}/{message}'
+    requests.get(url)
