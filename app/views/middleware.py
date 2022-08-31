@@ -217,6 +217,13 @@ class Mid:
                             called = self.user.message
                             self.user.finishing(called)
                             self.user.reset_user()
+                    elif self.user.stage == 1.4:
+                        called = f'{self.user.message} {self.message}'
+                        message_finality = ti_answers.message_finality
+                        self.responder(message_finality)
+                        self.user.finishing(called)
+                        self.user.reset_user()
+
                 elif self.user.menu == 3:
                     # estado inicial do menu 3
                     if self.user.stage == 0.0:

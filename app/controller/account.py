@@ -63,7 +63,8 @@ class Account:
                         f' {self.unity};Solicitação: {message};Numero para contato: {self.number}'
         crud.alert_group(message_group)
         title = f'Chamado aberto por: {self.name} {self.sector} {self.unity} '
-        threading.Thread(target=abrir_chamado, args=(title, message)).start()
+        corpo = f'{message}. Contato: {self.number}'
+        threading.Thread(target=abrir_chamado, args=(title, corpo)).start()
 
 
 def abrir_chamado(title, message):
