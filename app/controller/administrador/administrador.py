@@ -21,11 +21,47 @@ class Adm:
                 self.user.update_information(menu=2)
         elif self.user.menu == 1:
             if self.user.stage == 0.0:
-                awnser = str(self.message).split(',')
-                detail = adm_answers.detail
-                user = Account(awnser[0])
-                user.update_information(name=awnser[1], unity=awnser[2], sector=awnser[3])
-                self.responder(detail)
+                infos = self.message
+                awnser = None
+                number = None
+                name = None
+                unity = None
+                sector = None
+                level = None
+                menu = None
+                stage = None
+                active = None
+                try:
+                    awnser = json.loads(infos)
+                    for chave in awnser:
+                        if chave == 'number':
+                            number = awnser[chave]
+                        elif chave == 'name':
+                            name = awnser[chave]
+                        elif chave == 'unity':
+                            unity = awnser[chave]
+                        elif chave == 'sector':
+                            sector = awnser[chave]
+                        elif chave == 'level':
+                            level = awnser[chave]
+                        elif chave == 'menu':
+                            menu = awnser[chave]
+                        elif chave == 'stage':
+                            stage = awnser[chave]
+                        elif chave == 'active':
+                            active = awnser[chave]
+
+                    user_edition = Account(number).get_user()
+                    if user_edition:
+                        user_edition.update_information(name=name, unity=unity, sector=sector, level=level, menu=menu,
+                                                        stage=stage, active=active)
+                        awnser = adm_answers.detail
+                    else:
+                        awnser = 'Número não identificado, corrija por favor!'
+                except:
+                    awnser = 'Verifique se os dados foram digitados corretamente!'
+
+                self.responder(awnser)
                 self.user.update_information(menu=9)
         elif self.user.menu == 2:
             user = Account(self.message)
