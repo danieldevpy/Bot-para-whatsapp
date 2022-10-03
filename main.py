@@ -5,7 +5,9 @@ from app.views import middleware
 from app.models.crud import get_group
 
 
-driver = webdriver.Chrome()
+options = webdriver.ChromeOptions();
+options.add_argument('--user-data-dir=C:\\Users\\Nsantos\\AppData\\Local\\Google\\Chrome\\User Data')
+driver = webdriver.Chrome(chrome_options=options)
 driver.get('https://web.whatsapp.com/')
 
 time.sleep(15)
