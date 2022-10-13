@@ -1,4 +1,5 @@
 import json
+<<<<<<< HEAD
 
 
 def testando(name, age=None, outro=None, city=None):
@@ -27,3 +28,14 @@ for chave in emjson:
 testando(name, age, city)
 # the result is a Python dictionary:
 
+=======
+
+nojson = '{"number": "Nilton Jr", "name": "testenilton", "unity": "Nova Iguaçu", "sector": "TI"}'
+
+
+
+outro = json.loads(nojson)
+print(type(outro))
+for jn in outro:
+    print(jn)
+>>>>>>> 59384c64e6b6ae8aa263218f5653667530072037

@@ -31,6 +31,7 @@ class Adm:
                 sector = None
                 level = None
                 menu = None
+                message = None
                 stage = None
                 active = None
                 try:
@@ -45,26 +46,30 @@ class Adm:
                         elif chave == 'sector':
                             sector = awnser[chave]
                         elif chave == 'level':
-                            level = awnser[chave]
+                            level = int(awnser[chave])
                         elif chave == 'menu':
-                            menu = awnser[chave]
+                            menu = int(awnser[chave])
                         elif chave == 'stage':
-                            stage = awnser[chave]
+                            stage = float(awnser[chave])
                         elif chave == 'active':
-                            active = awnser[chave]
-
-                    user_edition = Account(number).get_user()
-                    if user_edition:
-                        user_edition.update_information(name=name, unity=unity, sector=sector, level=level, menu=menu,
-                                                        stage=stage, active=active)
+                            active = int(awnser[chave])
+                    user_edition = Account(number)
+                    search = user_edition.get_user()
+                    if search:
+                        user_edition.update_information(name=name, unity=unity, sector=sector,
+                                                        level=level, menu=menu, stage=stage,
+                                                        message=message, active=active)
                         awnser = adm_answers.detail
+                        self.user.update_information(menu=9)
                     else:
-                        awnser = 'Número não identificado, corrija por favor!'
+                        awnser = ['Número não identificado, tente novamente!']
+                        self.user.update_information(menu=1, stage=0.0)
                 except:
-                    awnser = 'Verifique se os dados foram digitados corretamente!'
+                    awnser = ['Verifique se os dados foram digitados corretamente, e tente novamente!']
+                    self.user.update_information(menu=1, stage=0.0)
 
                 self.responder(awnser)
-                self.user.update_information(menu=9)
+
         elif self.user.menu == 2:
             user = Account(self.message)
             user.update_information(active=777)

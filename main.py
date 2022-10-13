@@ -5,7 +5,9 @@ from app.views import middleware
 from app.models.crud import get_group
 
 
-driver = webdriver.Chrome()
+options = webdriver.ChromeOptions()
+options.add_argument('--user-data-dir=C:\\Users\\Nsantos\\AppData\\Local\\Google\\Chrome\\User Data')
+driver = webdriver.Chrome(chrome_options=options)
 driver.get('https://web.whatsapp.com/')
 
 time.sleep(15)
@@ -51,7 +53,7 @@ def bot():
             time.sleep(0.2)
             name_fixo = driver.find_element_by_xpath('//*[@id="main"]/header/div[2]/div[1]/div/span')
             name = name_fixo.text
-            if name == "TI Cisbaf":
+            if name == "Clarooo":
                 query = get_group()
                 if query:
                     same_line = [Keys.SHIFT, Keys.ENTER, Keys.SHIFT]

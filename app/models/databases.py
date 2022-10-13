@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 # Database creation
-engine = create_engine('sqlite:///app/models/db/banco.db', echo=True)
+engine = create_engine('sqlite:///app/models/db/banco.db', echo=False)
 Session = sessionmaker(bind=engine)
 session = Session()
 Base = declarative_base()
