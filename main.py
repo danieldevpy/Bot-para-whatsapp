@@ -3,6 +3,9 @@ import time
 from selenium.webdriver.common.keys import Keys
 from app.views import middleware
 from app.models.crud import get_group
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 
 options = webdriver.ChromeOptions()
@@ -53,7 +56,7 @@ def bot():
             time.sleep(0.2)
             name_fixo = driver.find_element_by_xpath('//*[@id="main"]/header/div[2]/div[1]/div/span')
             name = name_fixo.text
-            if name == "Clarooo":
+            if name == "TI Cisbaf":
                 query = get_group()
                 if query:
                     same_line = [Keys.SHIFT, Keys.ENTER, Keys.SHIFT]
