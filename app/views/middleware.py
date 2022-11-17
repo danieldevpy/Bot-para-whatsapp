@@ -129,6 +129,9 @@ class Mid:
                         self.responder(option_5)  # reposta
                         self.user.update_information(menu=5)
 
+                    else:
+                        message_except = ti_answers.message_excep
+                        self.responder(message_except)
                 # caso o usuario já tiver escolhido o menu 1, aqui vão as opções do menu 1
                 elif self.user.menu == 1:
                     # estado inicial do menu 1
@@ -183,6 +186,9 @@ class Mid:
                         else:
                             option_1_2_3 = ti_answers.option_1_2_3
                             self.responder(option_1_2_3)  # reposta
+                    else:
+                        message_except = ti_answers.message_excep
+                        self.responder(message_except)
                 # menu escolhido 2
                 elif self.user.menu == 2:
                     # estado inicial do menu 2
@@ -223,7 +229,9 @@ class Mid:
                         self.responder(message_finality)
                         self.user.finishing(called)
                         self.user.reset_user()
-
+                    else:
+                        message_except = ti_answers.message_excep
+                        self.responder(message_except)
                 elif self.user.menu == 3:
                     # estado inicial do menu 3
                     if self.user.stage == 0.0:
@@ -242,6 +250,9 @@ class Mid:
                         called = f'{self.user.message}: {self.message}'
                         self.user.finishing(called)
                         self.user.reset_user()
+                    else:
+                        message_except = ti_answers.message_excep
+                        self.responder(message_except)
 
                 elif self.user.menu == 5:
                     if self.user.stage == 0.0:

@@ -45,4 +45,5 @@ option_4 = ['*Ok! Aguarde o suporte entrar em contato, para atualizar o seu What
 option_5 = ['Ok, me diga o motivo do contato, que abriremos uma solitação e o suporte logo entrará em contato!']
 
 detail = ['Me diga o que está acontecendo, para abrirmos um chamado!']
+message_excep = ['Não consegui entender!', 'Responda corretamente, seguindo as instruções por favor.']
 message_finality = ['*O chamado foi aberto, por favor aguarde o suporte entrar em contato contato!*']
