@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.service import Service
 
 
 options = webdriver.ChromeOptions()
-options.add_argument('--user-data-dir=C:\\Users\\Nsantos\\AppData\\Local\\Google\\Chrome\\User Data')
+options.add_argument('--user-data-dir=C:\\Users\\Cisbot\\AppData\\Local\\Google\\Chrome\\User Data')
 driver = webdriver.Chrome(chrome_options=options)
 driver.get('https://web.whatsapp.com/')
 
