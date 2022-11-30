@@ -209,6 +209,9 @@ class Mid:
                             called = 'O tablet não está carregando!'
                             self.user.finishing(called)
                             self.user.reset_user()
+                        else:
+                            message_except = ti_answers.message_excep
+                            self.responder(message_except)
                         if self.user.stage == 1.1:
                             option_2_123 = ti_answers.option_2_123
                             self.responder(option_2_123)  # reposta
@@ -223,6 +226,10 @@ class Mid:
                             called = self.user.message
                             self.user.finishing(called)
                             self.user.reset_user()
+                        else:
+                            message_except = ti_answers.message_excep
+                            self.responder(message_except)
+
                     elif self.user.stage == 1.4:
                         called = f'{self.user.message} {self.message}'
                         message_finality = ti_answers.message_finality
@@ -241,6 +248,9 @@ class Mid:
                             self.user.update_information(stage=1.1, message='Suporte para a impressora')
                         elif self.message == '3':
                             self.user.update_information(stage=1.1, message='Outros')
+                        else:
+                            message_except = ti_answers.message_excep
+                            self.responder(message_except)
                         if self.user.stage == 1.1:
                             detail = ti_answers.detail
                             self.responder(detail)
