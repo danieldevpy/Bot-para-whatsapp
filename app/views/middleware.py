@@ -145,6 +145,9 @@ class Mid:
                             option_1_2 = ti_answers.option_1_2
                             self.responder(option_1_2)  # reposta
                             self.user.update_information(stage=2.0)
+                        else:
+                            message_except = ti_answers.message_excep
+                            self.responder(message_except)
                     # 3stagio 1.0
                     elif self.user.stage == 1.0:
                         if self.message != '0':
