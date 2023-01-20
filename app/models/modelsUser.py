@@ -26,6 +26,7 @@ class User(Base):
     stage = Column(Float, default=0)
     message = Column(String, nullable=True)
     active = Column(Integer, default=0)
+    login = Column(String, nullable=True)
 
 
 Base.metadata.create_all(engine)

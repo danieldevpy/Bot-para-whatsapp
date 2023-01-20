@@ -16,6 +16,7 @@ class Account:
         self.stage = None
         self.message = None
         self.active = None
+        self.login = None
 
     def create_user(self):
         user = crud.create_user(number=self.number)
@@ -39,6 +40,7 @@ class Account:
             self.stage = user.stage
             self.message = user.message
             self.active = user.active
+            self.login = user.login
 
         return user
 
@@ -64,9 +66,9 @@ class Account:
         crud.alert_group(message_group)
         title = f'Chamado aberto por: {self.name} {self.sector} {self.unity} '
         corpo = f'{message}. Contato: {self.number}'
-        threading.Thread(target=abrir_chamado, args=(title, corpo)).start()
+        threading.Thread(target=abrir_chamado, args=(title, corpo, self.login)).start()
 
 
-def abrir_chamado(title, message):
-    url = f'http://localhost:2000/{title}/{message}'
+def abrir_chamado(title, message, login):
+    url = f'http://localhost:2000/{title}/{message}/{login}'
     requests.get(url)
