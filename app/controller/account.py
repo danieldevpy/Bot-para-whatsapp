@@ -66,9 +66,9 @@ class Account:
         crud.alert_group(message_group)
         title = f'Chamado aberto por: {self.name} {self.sector} {self.unity} '
         corpo = f'{message}. Contato: {self.number}'
-        threading.Thread(target=abrir_chamado, args=(title, corpo, self.login)).start()
+        threading.Thread(target=abrir_chamado, args=(title, corpo, self.login, self.unity)).start()
 
 
-def abrir_chamado(title, message, login):
-    url = f'http://localhost:2000/{title}/{message}/{login}'
+def abrir_chamado(title, message, login, unidade):
+    url = f'http://localhost:2000/{title}/{message}/{login}/{unidade}'
     requests.get(url)
