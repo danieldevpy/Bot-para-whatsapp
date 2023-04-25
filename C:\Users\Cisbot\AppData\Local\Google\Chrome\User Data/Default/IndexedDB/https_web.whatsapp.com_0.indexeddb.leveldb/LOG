@@ -1,0 +1,29 @@
+2023/04/25-10:56:57.899 3baf Reusing MANIFEST /home/danielpy/Documentos/programaçao/python/geral/cisbot/C:\Users\Cisbot\AppData\Local\Google\Chrome\User Data/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/04/25-10:56:57.899 3baf Recovering log #26
+2023/04/25-10:56:57.933 3baf Reusing old log /home/danielpy/Documentos/programaçao/python/geral/cisbot/C:\Users\Cisbot\AppData\Local\Google\Chrome\User Data/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000026.log 
+2023/04/25-10:56:57.933 3baf Delete type=2 #24
+2023/04/25-10:56:57.933 3baf Delete type=2 #25
+2023/04/25-10:56:57.933 3baf Delete type=2 #27
+2023/04/25-10:57:21.809 3bb0 Level-0 table #32: started
+2023/04/25-10:57:21.833 3bb0 Level-0 table #32: 1039120 bytes OK
+2023/04/25-10:57:21.835 3bb0 Delete type=0 #26
+2023/04/25-10:57:22.842 3bb2 Compacting 1@1 + 2@2 files
+2023/04/25-10:57:22.879 3bb2 Generated table #33@1: 15154 keys, 2175898 bytes
+2023/04/25-10:57:22.913 3bb2 Generated table #34@1: 59817 keys, 1905795 bytes
+2023/04/25-10:57:22.913 3bb2 Compacted 1@1 + 2@2 files => 4081693 bytes
+2023/04/25-10:57:22.914 3bb2 compacted to: files[ 0 0 2 0 0 0 0 ]
+2023/04/25-10:57:22.914 3bb2 Delete type=2 #29
+2023/04/25-10:57:22.914 3bb2 Delete type=2 #32
+2023/04/25-10:57:22.914 3bb2 Delete type=2 #28
+2023/04/25-10:58:01.093 3baf Level-0 table #36: started
+2023/04/25-10:58:01.117 3baf Level-0 table #36: 1076253 bytes OK
+2023/04/25-10:58:01.118 3baf Delete type=0 #31
+2023/04/25-10:58:01.127 3baf Compacting 1@1 + 2@2 files
+2023/04/25-10:58:01.159 3baf Generated table #37@1: 14954 keys, 2177507 bytes
+2023/04/25-10:58:01.208 3baf Generated table #38@1: 69677 keys, 2237122 bytes
+2023/04/25-10:58:01.212 3baf Generated table #39@1: 2901 keys, 58726 bytes
+2023/04/25-10:58:01.212 3baf Compacted 1@1 + 2@2 files => 4473355 bytes
+2023/04/25-10:58:01.214 3baf compacted to: files[ 0 0 3 0 0 0 0 ]
+2023/04/25-10:58:01.214 3baf Delete type=2 #36
+2023/04/25-10:58:01.214 3baf Delete type=2 #34
+2023/04/25-10:58:01.214 3baf Delete type=2 #33

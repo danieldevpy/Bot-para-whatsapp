@@ -1,0 +1,33 @@
+2023/04/25-10:55:38.446 3a2f Reusing MANIFEST /home/danielpy/Documentos/programaçao/python/geral/cisbot/C:\Users\Cisbot\AppData\Local\Google\Chrome\User Data/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/04/25-10:55:38.446 3a2f Recovering log #15
+2023/04/25-10:55:38.499 3a2f Reusing old log /home/danielpy/Documentos/programaçao/python/geral/cisbot/C:\Users\Cisbot\AppData\Local\Google\Chrome\User Data/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000015.log 
+2023/04/25-10:55:45.810 3a2f Compacting 1@1 + 1@2 files
+2023/04/25-10:55:45.836 3a2f Generated table #20@1: 17407 keys, 1932748 bytes
+2023/04/25-10:55:45.836 3a2f Compacted 1@1 + 1@2 files => 1932748 bytes
+2023/04/25-10:55:45.838 3a2f compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/04/25-10:55:45.838 3a2f Delete type=2 #17
+2023/04/25-10:55:45.838 3a2f Delete type=2 #5
+2023/04/25-10:55:50.941 3a30 Level-0 table #22: started
+2023/04/25-10:55:50.958 3a30 Level-0 table #22: 967976 bytes OK
+2023/04/25-10:55:50.960 3a30 Delete type=0 #15
+2023/04/25-10:55:51.967 3a32 Compacting 1@0 + 1@1 files
+2023/04/25-10:55:52.010 3a32 Generated table #23@0: 59552 keys, 1632691 bytes
+2023/04/25-10:55:52.010 3a32 Compacted 1@0 + 1@1 files => 1632691 bytes
+2023/04/25-10:55:52.011 3a32 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/04/25-10:55:52.011 3a32 Delete type=2 #22
+2023/04/25-10:55:52.011 3a32 Delete type=2 #18
+2023/04/25-10:56:02.480 3a30 Compacting 1@1 + 1@2 files
+2023/04/25-10:56:02.513 3a30 Generated table #24@1: 15302 keys, 2176983 bytes
+2023/04/25-10:56:02.538 3a30 Generated table #25@1: 29698 keys, 1049365 bytes
+2023/04/25-10:56:02.538 3a30 Compacted 1@1 + 1@2 files => 3226348 bytes
+2023/04/25-10:56:02.540 3a30 compacted to: files[ 0 0 2 0 0 0 0 ]
+2023/04/25-10:56:02.541 3a30 Delete type=2 #23
+2023/04/25-10:56:02.541 3a30 Delete type=2 #20
+2023/04/25-10:56:35.379 3a30 Level-0 table #27: started
+2023/04/25-10:56:35.401 3a30 Level-0 table #27: 1092557 bytes OK
+2023/04/25-10:56:35.405 3a30 Delete type=0 #21
+2023/04/25-10:56:35.407 3a30 Compacting 1@1 + 2@2 files
+2023/04/25-10:56:35.442 3a30 Generated table #28@1: 15088 keys, 2175974 bytes
+2023/04/25-10:56:35.493 3a30 Generated table #29@1: 47092 keys, 1525340 bytes
+2023/04/25-10:56:35.493 3a30 Compacted 1@1 + 2@2 files => 3701314 bytes
+2023/04/25-10:56:35.494 3a30 compacted to: files[ 0 0 2 0 0 0 0 ]
