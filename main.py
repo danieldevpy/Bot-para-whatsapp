@@ -9,7 +9,7 @@ from app.views import middleware
 from app.models.crud import get_group
 
 options = webdriver.ChromeOptions()
-options.add_argument('--user-data-dir=C:\\Users\\Cisbot\\AppData\\Local\\Google\\Chrome\\User Data')
+options.add_argument('--user-data-dir=~/.config/google-chrome')
 driver = webdriver.Chrome(chrome_options=options, service=ChromeService(ChromeDriverManager().install()))
 driver.get('https://web.whatsapp.com/')
 action_boll = ActionChains(driver)
