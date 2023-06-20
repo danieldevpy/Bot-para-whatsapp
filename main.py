@@ -41,7 +41,9 @@ def bot():
 
         # VOLTAR PARA O CONTATO PADRÃO
         if not contato_padrao:
-            contato_padrao = driver.find_element(By.CLASS_NAME, "_2XH9R")
+            contato_padrao = driver.find_element(By.CLASS_NAME, "_2H6nH")
+            contato_padrao.click()
+
         contato_padrao.click()
         time.sleep(0.2)
         query = get_group()

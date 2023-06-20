@@ -70,5 +70,5 @@ class Account:
 
 
 def abrir_chamado(title, message, login, unidade):
-    url = f'http://localhost:2000/{title}/{message}/{login}/{unidade}'
+    url = f'http://localhost:2000/?title={title}&message={message}&login=Cisbot'
     requests.get(url)
