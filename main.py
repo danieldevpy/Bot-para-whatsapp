@@ -1,3 +1,4 @@
+import threading
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -7,6 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from app.views import middleware
 from app.models.crud import get_group
+import uvicorn
 
 options = webdriver.ChromeOptions()
 options.add_argument('--user-data-dir=~/.config/google-chrome')
@@ -60,5 +62,13 @@ def bot():
         time.sleep(1)
 
 
-while True:
-    bot()
+def start_bot():
+    while True:
+        bot()
+
+
+
+if __name__ == "__main__":
+    threading.Thread(target=start_bot).start()
+    print('inciiando uvicorn?')
+    uvicorn.run("api:app", host="0.0.0.0", port=8000)
