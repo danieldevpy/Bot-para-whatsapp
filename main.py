@@ -19,6 +19,7 @@ contato_padrao = None
 time.sleep(15)
 
 
+
 def bot():
     global contato_padrao
     try:
@@ -48,6 +49,7 @@ def bot():
 
         contato_padrao.click()
         time.sleep(0.2)
+    except:
         query = get_group()
         if query:
             same_line = [Keys.SHIFT, Keys.ENTER, Keys.SHIFT]
@@ -57,8 +59,6 @@ def bot():
             for answer in message:
                 group.send_keys(answer, same_line)
             group.send_keys('', Keys.ENTER)
-
-    except:
         time.sleep(1)
 
 
