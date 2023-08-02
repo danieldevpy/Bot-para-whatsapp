@@ -50,17 +50,20 @@ def bot():
         contato_padrao.click()
         time.sleep(0.2)
     except:
-        query = get_group()
-        if query:
-            same_line = [Keys.SHIFT, Keys.ENTER, Keys.SHIFT]
-            group = driver.find_element(By.XPATH,
-                '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
-            message = str(query).split(';')
-            for answer in message:
-                group.send_keys(answer, same_line)
-            group.send_keys('', Keys.ENTER)
-        time.sleep(1)
-
+        print('teste')
+        try:
+            query = get_group()
+            if query:
+                same_line = [Keys.SHIFT, Keys.ENTER, Keys.SHIFT]
+                group = driver.find_element(By.XPATH,
+                    '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
+                message = str(query).split(';')
+                for answer in message:
+                    group.send_keys(answer, same_line)
+                group.send_keys('', Keys.ENTER)
+            time.sleep(1)
+        except:
+            time.sleep(1)
 
 def start_bot():
     while True:
